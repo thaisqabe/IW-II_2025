@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios - Manipulação DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            border: 1px solid #aaa;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        h2 {
+            background: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercícios de Manipulação do DOM - Versão para Preenchimento</h1>
+    <p>Nome:Thaís Quinelato Abe &nbsp;&nbsp;&nbsp;&nbsp; Data: 08/05/2025</p>
+    <section>
+        <h2>1. Criar um botão que exibe a hora atual (hh:mm:ss) dentro de um parágrafo ao ser clicado.</h2><textarea
+            placeholder='    <input type="submit" value="Exibir hora atual" onclick="mostrarhora()">
+
+    <p id="hora"></p>
+
+    <script>
+        function mostrarhora() {
+            const agora = new Date();
+            let horas = agora.getHours().toString();
+            let minutos = agora.getMinutes().toString();
+            let segundos = agora.getSeconds().toString();
+            const horario = `${horas}:${minutos}:${segundos}`;
+            setInterval(mostrarhora, 1000);
+            return document.getElementById("hora").textContent = horario;
+        }
+    </script>'></textarea>
+    </section>
+    <input type="submit" value="Exibir hora atual" onclick="mostrarhora()">
+
+    <p id="hora"></p>
+
+    <script>
+        function mostrarhora() {
+            const agora = new Date();
+            let horas = agora.getHours().toString();
+            let minutos = agora.getMinutes().toString();
+            let segundos = agora.getSeconds().toString();
+            const horario = `${horas}:${minutos}:${segundos}`;
+            setInterval(mostrarhora, 1000);
+            return document.getElementById("hora").textContent = horario;
+        }
+    </script>
+
+
+
+    <section>
+        <h2>2. Criar um botão com ícone (🌙/🌞) que alterna entre o modo claro e escuro da página usando classList.</h2>
+        <textarea placeholder='   <input type="submit" value="🌙/🌞" onclick="modoce(body)">
+
+    <script>
+        function modoce(body) {
+            body.classList.toggle("modo-escuro");
+
+            if (body.classList.contains("modo-escuro")) {
+                body.style.backgroundColor = "black"
+            } else {
+                body.style.backgroundColor = "white"
+            }
+        }
+
+    </script>
+'></textarea>
+    </section>
+
+    <input type="submit" value="🌙/🌞" onclick="modoce(body)">
+
+    <script>
+        function modoce(body) {
+            body.classList.toggle("modo-escuro");
+
+            if (body.classList.contains("modo-escuro")) {
+                body.style.backgroundColor = "black"
+            } else {
+                body.style.backgroundColor = "white"
+            }
+        }
+
+    </script>
+
+
+
+    <section>
+        <h2>3. Criar um botão de 'curtir' com ícone de coração que, ao ser clicado, aumenta um contador de curtidas.
+        </h2><textarea placeholder='    <input type="submit" value="❤️" onclick="curtidas()">
+    <div id="qcurte"></div>
+
+    <script>
+        let quantc = 0
+        function curtidas() {
+            quantc += 1;
+            document.getElementById("qcurte").textContent=quantc } </script>'></textarea>
+    </section>
+
+    <input type="submit" value="❤️" onclick="curtidas()">
+    <div id="qcurte"></div>
+
+    <script>
+        let quantc = 0
+        function curtidas() {
+            quantc += 1;
+            document.getElementById('qcurte').textContent = quantc
+        }
+    </script>
+
+
+
+    <section>
+        <h2>4. Criar um campo obrigatório que exiba um alerta ao perder o foco se estiver vazio.</h2><textarea
+            placeholder=' <input type="text" name="" id="atexto" placeholder="Digite algo..." onblur="verificacao()">
+
+    <script>
+        const campo = document.getElementById("atexto")
+        function verificacao() {
+            if (campo.value == "") {
+                alert("Este campo é obrigatório!");
+                campo.focus();
+            }
+        }
+    </script>'></textarea>
+    </section>
+
+    <input type="text" name="" id="atexto" placeholder="Digite algo..." onblur="verificacao()">
+
+    <script>
+        const campo = document.getElementById('atexto')
+        function verificacao() {
+            if (campo.value == "") {
+                alert("Este campo é obrigatório!");
+                campo.focus();
+            }
+        }
+    </script>
+
+
+
+    <section>
+        <h2>5. Criar um botão que expande e encolhe um parágrafo com efeito de transição suave.</h2><textarea
+            placeholder='    <style>
+        #paragrafo {
+            font-size: 1rem;
+        }
+    </style>
+
+    <input type="submit" value="Expanda e encolha" onclick="expenc()">
+    <p id="paragrafo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ipsum, praesentium eos nostrum nobis consectetur deleniti vero soluta sapiente non laudantium vel hic velit.
+        Quasi voluptates, dolores expedita magnam eos cumque!
+    </p>
+
+    <script>
+        const p = document.getElementById("paragrafo");
+
+        let fontg = false;
+
+        p.style.transition = "font-size 0.5s ease";
+
+        function expenc() {
+            if (!fontg) {
+                p.style.fontSize = "2rem";
+            } else {
+                p.style.fontSize = "0.8rem";
+            }
+
+            fontg = !fontg;
+        }
+    </script>'></textarea>
+    </section>
+
+    <style>
+        #paragrafo {
+            font-size: 1rem;
+        }
+    </style>
+
+    <input type="submit" value="Expanda e encolha" onclick="expenc()">
+    <p id="paragrafo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ipsum, praesentium eos nostrum nobis consectetur deleniti vero soluta sapiente non laudantium vel hic velit.
+        Quasi voluptates, dolores expedita magnam eos cumque!
+    </p>
+
+    <script>
+        const p = document.getElementById("paragrafo");
+
+        let fontg = false;
+
+        p.style.transition = "font-size 0.5s ease";
+
+        function expenc() {
+            if (!fontg) {
+                p.style.fontSize = "2rem";
+            } else {
+                p.style.fontSize = "0.8rem";
+            }
+
+            fontg = !fontg;
+        }
+    </script>
+
+
+    <section>
+        <h2>6. Criar um botão que copia o conteúdo de uma div para a área de transferência (clipboard).</h2><textarea
+            placeholder='    <input type="submit" value="Copie o conteúdo" id="botao6">
+
+    <div id="conteudo">Olá, como vai uhul</div>
+
+    <script>
+        function copiartexto() {
+            const conteudo = document.getElementById("conteudo").textContent;
+
+            navigator.clipboard.writeText(conteudo)
+
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("botao6").addEventListener("click", copiartexto);
+        })
+
+    </script>'></textarea>
+    </section>
+
+    <input type="submit" value="Copie o conteúdo" id="botao6">
+
+    <div id="conteudo">Olá, como vai uhul</div>
+
+    <script>
+        function copiartexto() {
+            const conteudo = document.getElementById("conteudo").textContent;
+
+            navigator.clipboard.writeText(conteudo)
+
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("botao6").addEventListener("click", copiartexto);
+        })
+
+    </script>
+
+
+    <section>
+        <h2>7. Criar um campo de texto que fica com borda vermelha se o conteúdo for menor que 5 caracteres.</h2>
+        <textarea placeholder=' <textarea name="" id="caracter"></textarea>
+    <input type="submit" value="Enviar" id="botao7">
+
+    <script>
+        function caracterq() {
+            const textocarac = document.getElementById("caracter");
+
+            if (textocarac.value.length < 5) {
+                textocarac.style.border = "2px solid red";
+            } else {
+                textocarac.style.border = "2px solid green";
+
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("botao7").addEventListener("click", caracterq)
+        })
+    </script>
+'></textarea>
+    </section>
+
+    <textarea name="" id="caracter"></textarea>
+    <input type="submit" value="Enviar" id="botao7">
+
+    <script>
+        function caracterq() {
+            const textocarac = document.getElementById("caracter");
+
+            if (textocarac.value.length < 5) {
+                textocarac.style.border = "2px solid red";
+            } else {
+                textocarac.style.border = "2px solid green";
+
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("botao7").addEventListener("click", caracterq)
+        })
+    </script>
+
+
+    <section>
+        <h2>8. Criar um botão que gera 5 quadrados com cores de fundo aleatórias dentro de um container.</h2><textarea
+            placeholder='    <input type="submit" value="Enviar" id="botao8">
+
+    <div id="container" style="width:6%; height:60%; border: 2px solid black;"></div>
+
+    <script>
+        function coraleatoria() {
+            const letras = "0123456789ABCDEF";
+            let cor = "#";
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+        function adquadrado() {
+            const container = document.getElementById("container");
+
+            container.innerHTML = "";
+
+            for (let i = 0; i < 5; i++) {
+                const quadrado = document.createElement("div");
+                quadrado.style.width = "60px";
+                quadrado.style.height = "60px";
+                quadrado.style.backgroundColor = coraleatoria();
+                quadrado.style.border = "1px solid black";
+                container.appendChild(quadrado);
+            }
+        }
+
+         document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("botao8").addEventListener("click", adquadrado)
+        })
+    </script>'></textarea>
+    </section>
+
+    <input type="submit" value="Enviar" id="botao8">
+
+    <div id="container" style="width:6%; height:60%; border: 2px solid black;"></div>
+
+    <script>
+        function coraleatoria() {
+            const letras = "0123456789ABCDEF";
+            let cor = "#";
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+        function adquadrado() {
+            const container = document.getElementById("container");
+
+            container.innerHTML = "";
+
+            for (let i = 0; i < 5; i++) {
+                const quadrado = document.createElement("div");
+                quadrado.style.width = "60px";
+                quadrado.style.height = "60px";
+                quadrado.style.backgroundColor = coraleatoria();
+                quadrado.style.border = "1px solid black";
+                container.appendChild(quadrado);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("botao8").addEventListener("click", adquadrado)
+        })
+    </script>
+
+
+    <section>
+        <h2>9. Criar um campo de upload de imagem e exibir uma pré-visualização da imagem selecionada.</h2><textarea
+            placeholder='   <input type="file" id="uploadImagem" accept="image/*">
+    <br>
+    <img id="preview" src="" 
+        style="max-width: 300px; display: none;  padding: 5px;">
+
+    <script>
+        const inputImagem = document.getElementById("uploadImagem");
+        const imgPreview = document.getElementById("preview");
+
+        inputImagem.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+                const leitor = new FileReader();
+
+                leitor.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                    imgPreview.style.display = "block";
+                };
+
+                leitor.readAsDataURL(file);
+            } else {
+                imgPreview.src = "";
+                imgPreview.style.display = "none";
+            }
+        });
+    </script>
+'></textarea>
+    </section>
+
+
+    <input type="file" id="uploadImagem" accept="image/*">
+    <br>
+    <img id="preview" src="" style="max-width: 300px; display: none;  padding: 5px;">
+
+    <script>
+        const inputImagem = document.getElementById("uploadImagem");
+        const imgPreview = document.getElementById("preview");
+
+        inputImagem.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+                const leitor = new FileReader();
+
+                leitor.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                    imgPreview.style.display = "block";
+                };
+
+                leitor.readAsDataURL(file);
+            } else {
+                imgPreview.src = "";
+                imgPreview.style.display = "none";
+            }
+        });
+    </script>
+
+
+    <section>
+        <h2>10. Criar uma lista onde cada item possui botões para mover o item para cima ou para baixo.</h2><textarea
+            placeholder='      <ul>
+            <li>item 1 <input type="submit" value="mova para cima" onclick="movercima(this)"> <input type="submit"
+                    value="mova para baixo" onclick="moverbaixo(this)"></li>
+            <li>item 2 <input type="submit" value="mova para cima" onclick="movercima(this)"> <input type="submit"
+                    value="mova para baixo" onclick="moverbaixo(this)"></li>
+            <li>item 3 <input type="submit" value="mova para cima" onclick="movercima(this)"> <input type="submit"
+                    value="mova para baixo" onclick="moverbaixo(this)"></li>
+        </ul>
+
+        <script>
+            function movercima(botao) {
+                const li = botao.parentElement;
+                const anterior = li.previousElementSibling;
+                if (anterior) {
+                    li.parentElement.insertBefore(li, anterior);
+                }
+            }
+
+            function moverbaixo(botao) {
+                const li = botao.parentElement;
+                const proximo = li.nextElementSibling;
+                if (proximo) {
+                    li.parentElement.insertBefore(proximo, li);
+                }
+            }
+
+      
+        </script>'></textarea>
+
+        <ul>
+            <li>item 1 <input type="submit" value="mova para cima" onclick="movercima(this)"> <input type="submit"
+                    value="mova para baixo" onclick="moverbaixo(this)"></li>
+            <li>item 2 <input type="submit" value="mova para cima" onclick="movercima(this)"> <input type="submit"
+                    value="mova para baixo" onclick="moverbaixo(this)"></li>
+            <li>item 3 <input type="submit" value="mova para cima" onclick="movercima(this)"> <input type="submit"
+                    value="mova para baixo" onclick="moverbaixo(this)"></li>
+        </ul>
+
+        <script>
+            function movercima(botao) {
+                const li = botao.parentElement;
+                const anterior = li.previousElementSibling;
+                if (anterior) {
+                    li.parentElement.insertBefore(li, anterior);
+                }
+            }
+
+            function moverbaixo(botao) {
+                const li = botao.parentElement;
+                const proximo = li.nextElementSibling;
+                if (proximo) {
+                    li.parentElement.insertBefore(proximo, li);
+                }
+            }
+
+      
+        </script>
+      
+    </section>
+</body>
+
+</html>
